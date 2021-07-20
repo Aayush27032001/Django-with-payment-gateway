@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orelega+One&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+    integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+    integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/Css/indexStyles.css">
+  <title>{% block title %}{% endblock title %} | FRM</title>
+</head>
+
+<body>
+  <div>
+    <div>
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-primary" style="box-shadow: 0px -15px 40px black;">
+        <a class="navbar-brand fs-1 text-dark" href="/">FRM</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <form class="form-inline my-2 my-lg-0" action="success" method="POST">
+              {% csrf_token %}
+              <input class="form-control mr-sm-2" type="name" name="name" id="name" placeholder="Name">
+
+              <script src="https://checkout.razorpay.com/v1/checkout.js" data-key="rzp_test_GOnqLMbHkrycAR"
+                data-amount="50000" data-currency="INR" data-order_id="{{payment.id}}"
+                data-buttontext="Donate" data-name="TSF Payment Gateway Integration"
+                data-description="TSF Project" data-image="/static/favicon.ico" data-prefill.name="PC"
+                data-prefill.email="example@abc.com" data-theme.color="#F37254"></script>
+            </form>
+          </ul>
+          <h5>&nbsp</h5>
+        </div>
+      </nav>
+    </div>
+    <div>{% block body %}
+      {% endblock body %}</div>
+
+  </div>
+</body>
+
+</html>
