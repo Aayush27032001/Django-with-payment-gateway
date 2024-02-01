@@ -11,7 +11,7 @@ def index(request):
         amount = 50000
 
         client = razorpay.Client(
-            auth=("rzp_test_GOnqLMbHkrycAR", "rqymj3FqdXdqYoD4ttbCg0mG"))
+            auth=("*****", "*******"))
 
         payment = client.order.create({'amount': amount, 'currency': 'INR',
                                        'payment_capture': '1'})
